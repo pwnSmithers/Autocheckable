@@ -1,0 +1,6 @@
+framework module Pods_AutoCheckable_AutoCheckableUITests {
+  umbrella header "Pods-AutoCheckable-AutoCheckableUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
