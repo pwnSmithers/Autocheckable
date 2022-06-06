@@ -172,8 +172,6 @@ extension LogManager {
         guard isLoggingEnabled else { return }
         
         let path: String? = response.request?.path
-        let isSuccess: Bool = response.isSuccess
-        let message: String = response.message
         let dataJSON: String? = response.json
         
         var log: String = ""
@@ -181,9 +179,7 @@ extension LogManager {
         if let path = path {
             log = log + "[\(ApiManager.shared.baseURL)\(path)]\n"
         }
-        
-        log = log + "[isSuccess: \(isSuccess)]\n[message: \(message)]"
-        
+
         if let json = dataJSON {
             log = log + "\n[\(json)]"
         }

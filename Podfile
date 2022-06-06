@@ -8,6 +8,8 @@ target 'AutoCheckable' do
   # Pods for AutoCheckable
     pod 'RxSwift', '6.5.0'
     pod 'RxCocoa', '6.5.0'
+    pod 'Kingfisher', '~> 7.0'
+    pod 'SVGKit'	
 
   target 'AutoCheckableTests' do
     inherit! :search_paths

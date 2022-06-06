@@ -11,7 +11,7 @@ class ApiManager {
     // MARK: - Properties
     public static let shared: ApiManager = ApiManager()
     
-    public var baseURL: String = "https://api.binance.com/api/v3"
+    public var baseURL: String = "https://api.staging.myautochek.com/v1/inventory"
 }
 
 // MARK: - Public Functions
@@ -21,35 +21,21 @@ extension ApiManager {
         if request.isLoggingEnabled.0 {
             LogManager.req(request)
         }
-        
-        /// Comment for rest service
-        let data = try! Data(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "Response", ofType: "json")!), options: NSData.ReadingOptions.mappedIfSafe)
-        
-        /// Uncomment for rest service
-//        URLSession.shared.dataTask(with: request.urlRequest()) { data, response, error in
-//            guard let data = data, var responseModel = try? JSONDecoder().decode(ResponseModel<T>.self, from: data) else {
-            guard var responseModel = try? JSONDecoder().decode(ResponseModel<T>.self, from: data) else {
+        URLSession.shared.dataTask(with: request.urlRequest()) { data, response, error in
+            guard let data = data, var responseModel = try? JSONDecoder().decode(ResponseModel<T>.self, from: data) else {
                 let error: ErrorModel = ErrorModel(ErrorKey.parsing.rawValue)
                 LogManager.err(error)
 
                 completion(Result.failure(error))
                 return
             }
-
-            responseModel.rawData = data
-            responseModel.request = request
-
-            if request.isLoggingEnabled.1 {
-                LogManager.res(responseModel)
+            
+            do {
+                let jsonData = try JSONDecoder().decode(T.self, from: data)
+                completion(Result.success(jsonData))
+            } catch let error {
+                completion(Result.failure(ErrorModel(error.localizedDescription)))
             }
-        
-            if responseModel.isSuccess, let data = responseModel.data {
-                completion(Result.success(data))
-            } else {
-                completion(Result.failure(ErrorModel.generalError()))
-            }
-
-        /// Uncomment for rest service
-//        }.resume()
+        }.resume()
     }
 }
