@@ -10,6 +10,12 @@ import Kingfisher
 
 class CategoriesCollectionViewCell: UICollectionViewCell {
     
+    let imageBackgroundView: UIView = {
+       let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemGray2
+       return view
+    }()
     let categoryImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -21,6 +27,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         return label
     }()
     
@@ -34,25 +41,38 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {
-        self.addSubview(categoryImageView)
+        
         self.addSubview(categoryTitleLabel)
+        self.addSubview(imageBackgroundView)
+        self.imageBackgroundView.addSubview(categoryImageView)
         
         categoryImageView.clipsToBounds = true
         
         NSLayoutConstraint.activate([
-            categoryImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 2),
-            categoryImageView.widthAnchor.constraint(equalToConstant: 50),
-            categoryImageView.heightAnchor.constraint(equalToConstant: 50),
-            
-            categoryTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 2),
+            imageBackgroundView.topAnchor.constraint(equalTo: self.topAnchor, constant: 2),
+            imageBackgroundView.widthAnchor.constraint(equalToConstant: 50),
+            imageBackgroundView.heightAnchor.constraint(equalToConstant: 50),
+            imageBackgroundView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+
+            categoryImageView.widthAnchor.constraint(equalToConstant: 30),
+            categoryImageView.heightAnchor.constraint(equalToConstant: 30),
+            categoryImageView.centerYAnchor.constraint(equalTo: self.imageBackgroundView.centerYAnchor),
+            categoryImageView.centerXAnchor.constraint(equalTo: self.imageBackgroundView.centerXAnchor),
+ 
+            categoryTitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             categoryTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -2),
-            categoryTitleLabel.topAnchor.constraint(equalTo: categoryImageView.bottomAnchor, constant: 2)
+            categoryTitleLabel.topAnchor.constraint(equalTo: imageBackgroundView.bottomAnchor, constant: 2)
         ])
+        imageBackgroundView.layer.cornerRadius = 25
     }
     
     func configureCell(with make: MakeList) {
         categoryTitleLabel.text = make.name
         guard let url = URL(string: make.imageURL) else {return}
-        categoryImageView.kf.setImage(with: url, options: [.processor(SVGImgProcessor())])
+        if make.imageURL.hasSuffix("jpg") {
+            categoryImageView.kf.setImage(with: url)
+        } else {
+            categoryImageView.kf.setImage(with: url, options: [.processor(SVGImgProcessor())])
+        }
     }
 }

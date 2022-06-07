@@ -22,19 +22,20 @@ extension ApiManager {
             LogManager.req(request)
         }
         URLSession.shared.dataTask(with: request.urlRequest()) { data, response, error in
-            guard let data = data, var responseModel = try? JSONDecoder().decode(ResponseModel<T>.self, from: data) else {
+            guard let data = data else {
                 let error: ErrorModel = ErrorModel(ErrorKey.parsing.rawValue)
                 LogManager.err(error)
 
                 completion(Result.failure(error))
                 return
             }
-            
+            print("Json is \(data)")
             do {
                 let jsonData = try JSONDecoder().decode(T.self, from: data)
                 completion(Result.success(jsonData))
             } catch let error {
-                completion(Result.failure(ErrorModel(error.localizedDescription)))
+                print("This is a decoding error \(error)")
+                return completion(Result.failure(ErrorModel(error.localizedDescription)))
             }
         }.resume()
     }

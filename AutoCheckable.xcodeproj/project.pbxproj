@@ -10,6 +10,12 @@
 		7143B1D083E76036E083CB5C /* Pods_AutoCheckableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81BD656829F524B9DC20A7B /* Pods_AutoCheckableTests.framework */; };
 		7FD3910DAF299F61862267A1 /* Pods_AutoCheckable_AutoCheckableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EB093C55B2DA62E064B452 /* Pods_AutoCheckable_AutoCheckableUITests.framework */; };
 		81DD7A41F0C7DEA0F7AC7607 /* Pods_AutoCheckable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A153469A2F5087AF41CEC847 /* Pods_AutoCheckable.framework */; };
+		9683C761284F59430052C864 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9683C760284F59430052C864 /* CarDetailsViewController.swift */; };
+		9683C763284F5E590052C864 /* CarDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9683C762284F5E590052C864 /* CarDetails.swift */; };
+		9683C765284F5EDB0052C864 /* CarDetailsRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9683C764284F5EDB0052C864 /* CarDetailsRequestModel.swift */; };
+		9683C767284F62240052C864 /* CarMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9683C766284F62240052C864 /* CarMedia.swift */; };
+		9683C769284F62520052C864 /* CarMediaRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9683C768284F62520052C864 /* CarMediaRequestModel.swift */; };
+		9683C76B284F67A80052C864 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9683C76A284F67A80052C864 /* GalleryCollectionViewCell.swift */; };
 		96B98D3B284E061A00583A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B98D3A284E061A00583A3F /* AppDelegate.swift */; };
 		96B98D3D284E061A00583A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B98D3C284E061A00583A3F /* SceneDelegate.swift */; };
 		96B98D3F284E061A00583A3F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B98D3E284E061A00583A3F /* HomeViewController.swift */; };
@@ -57,6 +63,12 @@
 /* Begin PBXFileReference section */
 		1AA3F06C53E8387167537525 /* Pods-AutoCheckable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoCheckable.debug.xcconfig"; path = "Target Support Files/Pods-AutoCheckable/Pods-AutoCheckable.debug.xcconfig"; sourceTree = "<group>"; };
 		3EDBECDC62C433BED8547268 /* Pods-AutoCheckable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoCheckable.release.xcconfig"; path = "Target Support Files/Pods-AutoCheckable/Pods-AutoCheckable.release.xcconfig"; sourceTree = "<group>"; };
+		9683C760284F59430052C864 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
+		9683C762284F5E590052C864 /* CarDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetails.swift; sourceTree = "<group>"; };
+		9683C764284F5EDB0052C864 /* CarDetailsRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsRequestModel.swift; sourceTree = "<group>"; };
+		9683C766284F62240052C864 /* CarMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMedia.swift; sourceTree = "<group>"; };
+		9683C768284F62520052C864 /* CarMediaRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMediaRequestModel.swift; sourceTree = "<group>"; };
+		9683C76A284F67A80052C864 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		96B98D37284E061A00583A3F /* AutoCheckable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoCheckable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B98D3A284E061A00583A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96B98D3C284E061A00583A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +157,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9683C75F284F591F0052C864 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				96B98D3E284E061A00583A3F /* HomeViewController.swift */,
+				9683C760284F59430052C864 /* CarDetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		96B98D2E284E061A00583A3F = {
 			isa = PBXGroup;
 			children = (
@@ -176,7 +197,6 @@
 				96B98D6A284E10E900583A3F /* Networking */,
 				96B98D3A284E061A00583A3F /* AppDelegate.swift */,
 				96B98D3C284E061A00583A3F /* SceneDelegate.swift */,
-				96B98D3E284E061A00583A3F /* HomeViewController.swift */,
 				96B98D40284E061A00583A3F /* Main.storyboard */,
 				96B98D43284E061C00583A3F /* Assets.xcassets */,
 				96B98D45284E061C00583A3F /* LaunchScreen.storyboard */,
@@ -219,6 +239,8 @@
 				96B98D79284E13C100583A3F /* ResponseModel.swift */,
 				96B98D89284E252400583A3F /* Popular.swift */,
 				96B98D8F284E71E400583A3F /* Cars.swift */,
+				9683C762284F5E590052C864 /* CarDetails.swift */,
+				9683C766284F62240052C864 /* CarMedia.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -248,6 +270,8 @@
 				96B98D85284E241E00583A3F /* Services.swift */,
 				96B98D87284E245E00583A3F /* PopularCarsRequestModel.swift */,
 				96B98D91284E722600583A3F /* AllCarsRequestModel.swift */,
+				9683C764284F5EDB0052C864 /* CarDetailsRequestModel.swift */,
+				9683C768284F62520052C864 /* CarMediaRequestModel.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -255,6 +279,7 @@
 		96B98D81284E1B8800583A3F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9683C75F284F591F0052C864 /* Controllers */,
 				96B98D82284E1B8E00583A3F /* Cells */,
 			);
 			path = UI;
@@ -265,6 +290,7 @@
 			children = (
 				96B98D83284E1BCB00583A3F /* CategoriesCollectionViewCell.swift */,
 				96B98D8D284E6DED00583A3F /* CarCollectionViewCell.swift */,
+				9683C76A284F67A80052C864 /* GalleryCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -509,22 +535,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B98D76284E139B00583A3F /* ErrorModel.swift in Sources */,
+				9683C76B284F67A80052C864 /* GalleryCollectionViewCell.swift in Sources */,
 				96B98D90284E71E400583A3F /* Cars.swift in Sources */,
 				96B98D86284E241E00583A3F /* Services.swift in Sources */,
 				96B98D7D284E145900583A3F /* String+Extension.swift in Sources */,
 				96B98D8E284E6DED00583A3F /* CarCollectionViewCell.swift in Sources */,
 				96B98D8C284E329700583A3F /* SVGProcessor.swift in Sources */,
+				9683C769284F62520052C864 /* CarMediaRequestModel.swift in Sources */,
 				96B98D6C284E110300583A3F /* ApiManager.swift in Sources */,
 				96B98D72284E135B00583A3F /* LogManager.swift in Sources */,
 				96B98D3F284E061A00583A3F /* HomeViewController.swift in Sources */,
 				96B98D88284E245E00583A3F /* PopularCarsRequestModel.swift in Sources */,
 				96B98D78284E13A900583A3F /* RequestModel.swift in Sources */,
+				9683C763284F5E590052C864 /* CarDetails.swift in Sources */,
 				96B98D7F284E147300583A3F /* ErrorKey.swift in Sources */,
+				9683C767284F62240052C864 /* CarMedia.swift in Sources */,
 				96B98D3B284E061A00583A3F /* AppDelegate.swift in Sources */,
 				96B98D84284E1BCB00583A3F /* CategoriesCollectionViewCell.swift in Sources */,
+				9683C761284F59430052C864 /* CarDetailsViewController.swift in Sources */,
 				96B98D92284E722600583A3F /* AllCarsRequestModel.swift in Sources */,
 				96B98D8A284E252400583A3F /* Popular.swift in Sources */,
 				96B98D7A284E13C100583A3F /* ResponseModel.swift in Sources */,
+				9683C765284F5EDB0052C864 /* CarDetailsRequestModel.swift in Sources */,
 				96B98D3D284E061A00583A3F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

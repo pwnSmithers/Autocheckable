@@ -10,7 +10,7 @@ import SVGKit
 import Kingfisher
 
 public struct SVGImgProcessor: ImageProcessor {
-    public var identifier: String = "ke.co.smith.Smithers"
+    public var identifier: String = "com.bulamu.com.AutoCheckable"
     public func process(item: ImageProcessItem, options: KingfisherParsedOptionsInfo) -> KFCrossPlatformImage? {
         switch item {
         case .image(let image):

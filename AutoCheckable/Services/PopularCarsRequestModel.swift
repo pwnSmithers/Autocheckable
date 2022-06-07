@@ -8,9 +8,7 @@
 import Foundation
 
 class PopularCarsRequestModel: RequestModel {
-    
     override var path: String {
         return "/make?popular=true"
     }
-    
 }

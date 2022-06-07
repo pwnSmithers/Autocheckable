@@ -25,6 +25,9 @@ class HomeViewController: UIViewController {
     private func setupView() {
         self.categoriesCollectionView.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: "CategoriesCollectionViewCell")
         self.productListCollectionView.register(CarCollectionViewCell.self, forCellWithReuseIdentifier: "CarCollectionViewCell")
+        self.view.backgroundColor = .systemGray6
+        self.categoriesCollectionView.backgroundColor = .systemGray6
+        self.productListCollectionView.backgroundColor = .systemGray6
         fetchCategories()
         fetchAllCars()
     }
@@ -63,7 +66,16 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if collectionView == productListCollectionView {
+            if let vc = storyboard.instantiateViewController(withIdentifier: "CarDetailsViewController") as? CarDetailsViewController {
+                vc.carID = cars[indexPath.row].id
+                vc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -98,7 +110,23 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == categoriesCollectionView {
             return CGSize(width: 100, height: 100)
         } else {
-            return CGSize(width: 300, height: 300)
+            return CGSize(width: 300, height: 330)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == categoriesCollectionView {
+            return 20
+        } else {
+            return 40
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView == categoriesCollectionView {
+            return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        } else {
+            return UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         }
     }
 }

@@ -19,4 +19,16 @@ class Services {
             completion(result)
         }
     }
+    
+    class func carDetails(carID: String, completion: @escaping(Swift.Result<CarDetails, ErrorModel>) -> Void) {
+        ApiManager.shared.sendRequest(request: CarDetailsRequestModel(carID: carID)) { result in
+            completion(result)
+        }
+    }
+    
+    class func carMedia(carID: String, completion: @escaping(Swift.Result<CarMedia, ErrorModel>) -> Void) {
+        ApiManager.shared.sendRequest(request: CarMediaRequestModel(carID: carID)) { result in
+            completion(result)
+        }
+    }
 }
