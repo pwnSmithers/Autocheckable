@@ -13,7 +13,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     let imageBackgroundView: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemGray2
+        view.backgroundColor = .lightGray
        return view
     }()
     let categoryImageView: UIImageView = {

@@ -11,7 +11,28 @@ class HomeViewController: UIViewController {
  
     var carMake = [MakeList]()
     var cars = [Car]()
+    
+    let exploreButton: UIButton = {
+       let button = UIButton()
+        button.setImage(UIImage(systemName: "square.grid.2x2.fill"), for: .normal)
+        button.tintColor = .black
+       return button
+    }()
 
+    let exploreLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Explore"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        return label
+    }()
+    
+    let shoppingButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "bag"), for: .normal)
+        button.tintColor = .black
+        return button
+    }()
+    
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     
     @IBOutlet weak var productListCollectionView: UICollectionView!
@@ -25,11 +46,20 @@ class HomeViewController: UIViewController {
     private func setupView() {
         self.categoriesCollectionView.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: "CategoriesCollectionViewCell")
         self.productListCollectionView.register(CarCollectionViewCell.self, forCellWithReuseIdentifier: "CarCollectionViewCell")
-        self.view.backgroundColor = .systemGray6
-        self.categoriesCollectionView.backgroundColor = .systemGray6
-        self.productListCollectionView.backgroundColor = .systemGray6
         fetchCategories()
         fetchAllCars()
+        
+        let exploreBarButtonItem = UIBarButtonItem(customView: exploreButton)
+        let exploreLabelItem = UIBarButtonItem(customView: exploreLabel)
+        let shoppingCartItem = UIBarButtonItem(customView: shoppingButton)
+
+        navigationItem.leftBarButtonItems = [exploreBarButtonItem, exploreLabelItem]
+        navigationItem.rightBarButtonItems = [shoppingCartItem]
+        self.title = ""
+    }
+    
+    @objc func navigationItemsActions() {
+        print("Nav Items Tapped!")
     }
     
     private func fetchCategories() {

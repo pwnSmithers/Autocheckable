@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="AutoCheckable" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gri-QC-bHA">
                                 <rect key="frame" x="20" y="108" width="374" height="101"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="JA7-gW-wel"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yeL-RG-CVb">
                                 <rect key="frame" x="20" y="237" width="374" height="576"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XrC-Za-U4p">
                                     <size key="itemSize" width="300" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -70,7 +70,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gri-QC-bHA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="42d-kQ-Bev"/>
                             <constraint firstItem="yeL-RG-CVb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="5Is-1x-zTB"/>
@@ -81,7 +81,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yeL-RG-CVb" secondAttribute="trailing" constant="20" id="tk9-dT-7Xn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Kmo-gr-2Dg"/>
+                    <navigationItem key="navigationItem" title="Title" id="WPI-Kk-jFR">
+                        <barButtonItem key="backBarButtonItem" title="Cars" id="pRU-OT-fs1"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="categoriesCollectionView" destination="gri-QC-bHA" id="Y8Y-ta-NlU"/>
                         <outlet property="productListCollectionView" destination="yeL-RG-CVb" id="okZ-lJ-blW"/>
