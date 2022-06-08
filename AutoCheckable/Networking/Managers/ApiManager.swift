@@ -29,12 +29,10 @@ extension ApiManager {
                 completion(Result.failure(error))
                 return
             }
-            print("Json is \(data)")
             do {
                 let jsonData = try JSONDecoder().decode(T.self, from: data)
                 completion(Result.success(jsonData))
             } catch let error {
-                print("This is a decoding error \(error)")
                 return completion(Result.failure(ErrorModel(error.localizedDescription)))
             }
         }.resume()

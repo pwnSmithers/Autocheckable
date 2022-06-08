@@ -91,7 +91,6 @@ class CarCollectionViewCell: UICollectionViewCell {
         self.addSubview(addToCartButton)
         carImageView.layer.cornerRadius = 20
         carImageView.clipsToBounds = true
-        carImageView.backgroundColor = .blue
         carImageView.layer.borderWidth = 2
         carImageView.layer.borderColor = UIColor.white.cgColor
         NSLayoutConstraint.activate([

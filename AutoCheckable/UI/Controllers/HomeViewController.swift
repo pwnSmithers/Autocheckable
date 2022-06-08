@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func navigationItemsActions() {
-        print("Nav Items Tapped!")
+      //TODO :- add navigationItems actions
     }
     
     private func fetchCategories() {
@@ -72,8 +72,7 @@ class HomeViewController: UIViewController {
                 }
                 
                 break
-            case .failure(let error):
-                print("Error is \(error.message)")
+            case .failure(_):
                 break
             }
         }
@@ -87,8 +86,7 @@ class HomeViewController: UIViewController {
                 DispatchQueue.main.async {
                     self?.productListCollectionView.reloadData()
                 }
-            case .failure(let error):
-                print("Error \(error.messageKey)")
+            case .failure(_):
                 break
             }
         }

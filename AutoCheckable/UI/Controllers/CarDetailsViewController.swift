@@ -39,7 +39,6 @@ class CarDetailsViewController: UIViewController {
         setupView()
         fetchCarDetails()
         fetchCarMedia()
-        print("Car ID \(carID)")
     }
     
     private func setupView() {
@@ -66,8 +65,8 @@ class CarDetailsViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.setupCarDetails()
                 }
-            case .failure(let error):
-                print("Error Error \(error)")
+            case .failure(_):
+                break
             }
         }
     }
@@ -80,8 +79,8 @@ class CarDetailsViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.sliderCollectionVIew.reloadData()
                 }
-            case .failure(let error):
-                print("Error \(error)")
+            case .failure(_):
+                break
             }
         }
     }
